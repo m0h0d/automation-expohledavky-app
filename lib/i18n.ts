@@ -109,7 +109,7 @@ import skInquiryPage from '@/locales/sk/inquiry-page.json';
 
 import { getLanguageFromHostname } from './domain-mapping';
 import Cookies from 'js-cookie';
-import { getInitialLocale } from './server-utils';
+import { getInitialLocale } from './server-utils-client';
 import { useState, useEffect, useMemo } from 'react';
 import * as React from 'react';
 
