@@ -8,22 +8,6 @@ import { getPostBySlug, getAllPostSlugs, getAllPosts } from '@/lib/posts';
 import MDXContent from '@/components/mdx-content';
 import { getCurrentLocale } from '@/lib/server-locale';
 
-// Define locales directly here to avoid Symbol export errors
-const SUPPORTED_LOCALES = ['cs', 'sk', 'de', 'en'];
-
-// Generate static parameters for all articles
-export async function generateStaticParams() {
-  // Generate slugs for all locales
-  const params: { slug: string; locale: string }[] = [];
-  for (const locale of SUPPORTED_LOCALES) {
-    const slugs = getAllPostSlugs(locale);
-    slugs.forEach(slug => {
-      params.push({ slug, locale });
-    });
-  }
-  return params.map(({ slug }) => ({ slug }));
-}
-
 // Metadata for SEO
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   // Get the locale from server context
